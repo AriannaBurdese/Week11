@@ -9,8 +9,18 @@ class Controller:
         self._model = model
 
     def handleAnalizzaOggetti(self, e):
-        pass
+        self._model.buildGrafo()
+        self._view.txt_result.controls.clear()
+        self._view.txt_result.controls.append(ft.Text(f"{self._model._grafo}"))
+        self._view.update_page()
 
     def handleCompConnessa(self,e):
-        pass
+        text_id = self._view._txtIdOggetto.value()
+        try:
+            id = int(text_id)
+            print(f"{id}")
+
+        except ValueError:
+            self._view.txt_result.controls.clear()
+            self._view.txt_result.controls.append(ft.Text(f"Inserisci" ))
 
